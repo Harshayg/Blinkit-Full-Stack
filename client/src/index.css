@@ -1,165 +1,44 @@
+/* ================= IMPORTS (MUST BE AT TOP) ================= */
 @import "leaflet/dist/leaflet.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
+/* ================= TAILWIND ================= */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-html{
-    scroll-behavior: smooth;
+/* ================= GLOBAL ================= */
+html {
+  scroll-behavior: smooth;
 }
 
-/* Optional: for better code clarity */
+body {
+  font-family: "Poppins", sans-serif;
+  @apply bg-blue-50 text-neutral-700;
+}
+
+/* ================= SCROLLBAR ================= */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbarCustom::-webkit-scrollbar {
+  width: 10px;
+  @apply bg-slate-100;
+}
+
+.scrollbarCustom::-webkit-scrollbar-thumb {
+  @apply bg-blue-100 rounded-full;
+}
+
+/* ================= MENU ================= */
 .menu-link {
-    @apply px-3 py-2 rounded-xl hover:bg-indigo-50 transition;
-  }
-  
-
-
-body{
-    font-family: "Poppins", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-    @apply bg-blue-50 text-neutral-700 scroll-smooth
+  @apply px-3 py-2 rounded-xl hover:bg-indigo-50 transition;
 }
 
-.scrollbar-none::-webkit-scrollbar{
-    display: none;
-}
-
-.scrollbarCustom::-webkit-scrollbar{
-    width: 10px;
-    @apply bg-slate-100
-}
-.scrollbarCustom::-webkit-scrollbar-thumb{
-    @apply bg-blue-100 rounded-full
-}
-
+/* ================= UTILITIES ================= */
 @layer utilities {
-    .animate-fade-in {
-      animation: fadeIn 0.5s ease-out both;
-    }
-  
-    .animate-draw-x {
-      stroke-dasharray: 100;
-      stroke-dashoffset: 100;
-      animation: drawX 2s ease forwards;
-      animation-delay: 0.5s;
-    }
-  
-    .animate-pop {
-      animation: pop 1.2s ease-out forwards;
-    }
-  
-    .animate-popup-card {
-      animation: popupCard 0.8s ease-out forwards;
-    }
-  
-    .blob {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 9999px;
-      filter: blur(60px);
-      opacity: 0.5;
-      animation: blobMove 15s infinite ease-in-out alternate;
-    }
-  
-    @keyframes drawX {
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-  
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  
-    @keyframes pop {
-      0% { transform: scale(0); opacity: 0; }
-      60% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); }
-    }
-  
-    @keyframes popupCard {
-      0% { transform: translateY(30px) scale(0.95); opacity: 0; }
-      100% { transform: translateY(0) scale(1); opacity: 1; }
-    }
-  
-    @keyframes blobMove {
-      0% {
-        transform: translate(0px, 0px) scale(1);
-      }
-      100% {
-        transform: translate(-50px, 60px) scale(1.2);
-      }
-    }
-  }
-  @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out both;
-  }
 
-  .animate-draw-check {
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    animation: drawCheck 2s ease forwards;
-    animation-delay: 0.5s;
-  }
-
-  .animate-pop {
-    animation: pop 1.2s ease-out forwards;
-  }
-
-  .animate-popup-card {
-    animation: popupCard 0.8s ease-out forwards;
-  }
-
-  .blob {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 9999px;
-    filter: blur(60px);
-    opacity: 0.5;
-    animation: blobMove 15s infinite ease-in-out alternate;
-  }
-
-  @keyframes drawCheck {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  @keyframes pop {
-    0% { transform: scale(0); opacity: 0; }
-    60% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); }
-  }
-
-  @keyframes popupCard {
-    0% { transform: translateY(30px) scale(0.95); opacity: 0; }
-    100% { transform: translateY(0) scale(1); opacity: 1; }
-  }
-
-  @keyframes blobMove {
-    0% {
-      transform: translate(0px, 0px) scale(1);
-    }
-    100% {
-      transform: translate(-50px, 60px) scale(1.2);
-    }
-  }
-}
-@layer utilities {
   .animate-fade-in {
     animation: fadeIn 0.5s ease-out both;
   }
@@ -172,164 +51,84 @@ body{
     animation: pop 1.2s ease-out forwards;
   }
 
-  .animate-draw-check {
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    animation: drawCheck 1.5s ease forwards;
-    animation-delay: 0.3s;
-  }
-
-  .animate-circle-loader {
-    stroke-dasharray: 300;
-    stroke-dashoffset: 300;
-    animation: circleLoader 6s ease-out forwards;
-  }
-
-  .blob {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 9999px;
-    filter: blur(60px);
-    opacity: 0.5;
-    animation: blobMove 15s infinite ease-in-out alternate;
-  }
-
-  @keyframes circleLoader {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-
-  @keyframes drawCheck {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  @keyframes popupCard {
-    0% { transform: translateY(30px) scale(0.95); opacity: 0; }
-    100% { transform: translateY(0) scale(1); opacity: 1; }
-  }
-
-  @keyframes pop {
-    0% { transform: scale(0); opacity: 0; }
-    60% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); }
-  }
-
-  @keyframes blobMove {
-    0% {
-      transform: translate(0px, 0px) scale(1);
-    }
-    100% {
-      transform: translate(-50px, 60px) scale(1.2);
-    }
-  }
-}
-
-/* if needed in global.css */
-@keyframes smoke {
-  0% { opacity: 0; transform: translateX(0); }
-  100% { opacity: 1; transform: translateX(100px); }
-}
-.smoke {
-  animation: smoke 1s ease-out forwards;
-}
-
-/* Hide scrollbar completely */
-.custom-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.custom-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.loader-future {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #00ffff;
-  border-top: 4px solid transparent;
-  border-radius: 50%;
-  animation: robot-spin 0.6s steps(8) infinite;
-  box-shadow: 0 0 15px #00ffff99;
-}
-
-@keyframes robot-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* In your global CSS file like index.css or tailwind.css */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-@layer utilities {
   .animate-slideUp {
     animation: slideUp 0.3s ease-out;
   }
 
-  @keyframes slideUp {
-    from {
-      transform: translateY(100%);
-    }
-    to {
-      transform: translateY(0%);
-    }
+  .animate-slideDown {
+    animation: slideDown 0.5s ease-out;
+  }
+
+  .blob {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 9999px;
+    filter: blur(60px);
+    opacity: 0.5;
+    animation: blobMove 15s infinite ease-in-out alternate;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
+
+/* ================= ANIMATIONS ================= */
 
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-out;
+@keyframes popupCard {
+  0% { transform: translateY(30px) scale(0.95); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
+@keyframes pop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
 
-animate-slideDown {
-       @apply animate-bounce;
-       animation: slideDown 0.5s ease-out;
-  }
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0%); }
+}
 
-   @keyframes slideDown {
-       0% {
-           transform: translateY(-100%);
-           opacity: 0;
-       }
-      100% {
-          transform: translateY(0);
-           opacity: 1;
-     }
- }
- .animate-fadeIn {
-     animation: fadeIn 0.5s ease-out;
- }
- @keyframes fadeIn {
-     0% {
-         opacity: 0;
-         transform: scale(0.8);
-     }
-     100% {
-         opacity: 1;
-         transform: scale(1);
-     }
- }
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 
- .discount-badge {
+@keyframes blobMove {
+  0% { transform: translate(0px, 0px) scale(1); }
+  100% { transform: translate(-50px, 60px) scale(1.2); }
+}
+
+/* ================= LOADER ================= */
+.loader-future {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #00ffff;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  box-shadow: 0 0 15px #00ffff99;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ================= BADGE ================= */
+.discount-badge {
   position: absolute;
   top: 0;
   left: 0;
@@ -341,81 +140,17 @@ animate-slideDown {
   border-top-left-radius: 8px;
   border-bottom-right-radius: 8px;
   z-index: 10;
-  white-space: nowrap;
   text-transform: uppercase;
 }
 
-@keyframes scroll-up {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-}
-
-.animate-scroll-up {
-  animation: scroll-up 0.5s ease-in-out;
-}
-
-.hide-scrollbar {
-  -ms-overflow-style: none;  
-  scrollbar-width: none;  
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;  
-}
-
+/* ================= ICON ANIMATION ================= */
 @keyframes jiggle {
   0%, 100% { transform: rotate(0deg); }
   25% { transform: rotate(6deg); }
   50% { transform: rotate(-6deg); }
   75% { transform: rotate(6deg); }
 }
+
 .cart-icon:hover {
   animation: jiggle 0.8s ease-in-out infinite;
 }
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
- @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes pulseSlow {
-   0%, 100% { opacity: 1; }
-   50% { opacity: .7; }
-}
- @keyframes bounceOnce {
-     0%, 100% {
-         transform: translateY(0);
-     }
-     20% {
-         transform: translateY(-10px);
-     }
-     40% {
-         transform: translateY(0);
-     }
-     60% {
-         transform: translateY(-5px);
-     }
-     80% {
-         transform: translateY(0);
-     }
- }
-
-
-.animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
-.animate-fade-in-down { animation: fadeInDown 0.6s ease-out forwards; }
-.animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
-.animate-pulse-slow { animation: pulseSlow 3s infinite ease-in-out; }
- .animate-bounce-once { animation: bounceOnce 1s ease-in-out; }
