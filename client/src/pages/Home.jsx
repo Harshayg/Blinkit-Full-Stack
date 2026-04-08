@@ -6,7 +6,7 @@ import { valideURLConvert } from "../utils/valideURLConvert";
 import { useNavigate } from "react-router-dom";
 import CategoryWiseProductDisplay from "../components/CategoryWiseProductDisplay";
 import pharmacy from "../assets/pharmacy.jpg";
-import Petcare from "../assets/Petcare.jpg";
+import Petcare from "../assets/PetCare.jpg";
 import babycare from "../assets/babycare.jpg";
 import toast from "react-hot-toast";
 
